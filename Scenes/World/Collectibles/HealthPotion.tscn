@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cdg3l034gfyo6"]
+
+[node name="HealthPotion" type="Area2D" unique_id=533898384]

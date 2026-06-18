@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dryn1wrtmmlay"]
+
+[node name="Skeleton" type="CharacterBody2D" unique_id=1630602325]
