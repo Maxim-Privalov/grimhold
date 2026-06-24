@@ -1,40 +1,93 @@
 using Godot;
-using System;
 
 public partial class Player : CharacterBody2D
 {
-	public const float Speed = 300.0f;
-	public const float JumpVelocity = -400.0f;
+	[Export]
+	public float Speed = 250f;
+
+	[Export]
+	public float JumpVelocity = -450f;
+
+	[Export]
+	public float Gravity = 1200f;
+
+	// Номер слоя, на котором будут платформы, через которые можно спускаться.
+	// В Godot слои считаются с 1, поэтому 2 = второй слой.
+	[Export]
+	public int DropThroughPlatformLayer = 2;
+
+	[Export]
+	public float DropThroughTime = 0.25f;
+
+	[Export]
+	public float DropVelocity = 80f;
+
+	private bool _isDroppingThroughPlatform = false;
 
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
 
-		// Add the gravity.
 		if (!IsOnFloor())
 		{
-			velocity += GetGravity() * (float)delta;
+			velocity.Y += Gravity * (float)delta;
 		}
 
-		// Handle Jump.
-		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
+		float direction = 0;
+
+		if (Input.IsActionPressed("moveLeft"))
 		{
-			velocity.Y = JumpVelocity;
+			// меняем направление спрайта на движение влево
+			direction -= 1;
 		}
 
-		// Get the input direction and handle the movement/deceleration.
-		// As good practice, you should replace UI actions with custom gameplay actions.
-		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		if (direction != Vector2.Zero)
+		if (Input.IsActionPressed("moveRight"))
 		{
-			velocity.X = direction.X * Speed;
+			// меняем направление спрайта на движение вправо
+			direction += 1;
 		}
-		else
+
+		velocity.X = direction * Speed;
+
+		if (Input.IsActionJustPressed("moveUp") && IsOnFloor())
 		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+			if (Input.IsActionPressed("moveDown"))
+			{
+				
+				StartDropThroughPlatform();
+
+				
+				velocity.Y = DropVelocity;
+			}
+			else
+			{
+				
+				velocity.Y = JumpVelocity;
+			}
 		}
 
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+
+	private async void StartDropThroughPlatform()
+	{
+		if (_isDroppingThroughPlatform)
+			return;
+
+		_isDroppingThroughPlatform = true;
+
+		// Временно отключаем столкновение игрока со слоем платформ.
+		SetCollisionMaskValue(DropThroughPlatformLayer, false);
+
+		await ToSignal(
+			GetTree().CreateTimer(DropThroughTime),
+			SceneTreeTimer.SignalName.Timeout
+		);
+
+		// Возвращаем столкновение обратно.
+		SetCollisionMaskValue(DropThroughPlatformLayer, true);
+
+		_isDroppingThroughPlatform = false;
 	}
 }
