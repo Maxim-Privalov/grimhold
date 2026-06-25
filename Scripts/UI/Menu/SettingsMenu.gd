@@ -6,6 +6,7 @@ const CONFIG_PATH := "user://settings.cfg"
 const ACCENT := Color(0.82, 0.30, 0.18)
 const TEXT_DIM := Color(0.62, 0.56, 0.52)
 const BORDER_FAINT := Color(0.22, 0.18, 0.18)
+const COLOR_BG_OVERLAY := Color(0.02, 0.02, 0.04, 0.55)
 
 var _config := ConfigFile.new()
 
@@ -16,8 +17,32 @@ func _ready() -> void:
 
 
 func _build_ui() -> void:
-	var bg := preload("res://Scenes/UI/Menu/GridBackground.gd").new()
-	add_child(bg)
+
+	# === Фоновый слой ===
+	var bg_image := TextureRect.new()
+	bg_image.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg_image.texture = preload("res://Assets/Backgrounds/BackgroundMain.png")
+	bg_image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	bg_image.stretch_mode = TextureRect.STRETCH_SCALE
+	add_child(bg_image)
+
+	var overlay := ColorRect.new()
+	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+	overlay.color = COLOR_BG_OVERLAY
+	add_child(overlay)
+
+	# === Декоративная рамка (по желанию) ===
+	var border := PanelContainer.new()
+	border.set_anchors_preset(Control.PRESET_FULL_RECT)
+	var border_style := StyleBoxFlat.new()
+	border_style.bg_color = Color.TRANSPARENT
+	border_style.border_width_left = 2
+	border_style.border_width_right = 2
+	border_style.border_color = Color(0.3, 0.25, 0.3, 0.2)
+	border_style.content_margin_left = 2
+	border_style.content_margin_right = 2
+	border.add_theme_stylebox_override("panel", border_style)
+	add_child(border)
 
 	var root := VBoxContainer.new()
 	root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)

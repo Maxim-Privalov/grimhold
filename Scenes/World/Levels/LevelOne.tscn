@@ -1,3 +1,22 @@
 [gd_scene format=3 uid="uid://cnsjy1hdcpk00"]
 
-[node name="LevelOne" type="Node2D" unique_id=741024875]
+[ext_resource type="Script" uid="uid://bhn8kqrtq4kh5" path="res://Scripts/World/Levels/LevelOne.cs" id="1_qyn7d"]
+[ext_resource type="Texture2D" uid="uid://dhhayctwkb6ve" path="res://Assets/Textures/DirtGrassBlock1.png" id="2_siyp8"]
+
+[node name="LevelOne" type="Node2D" unique_id=1890397627]
+script = ExtResource("1_qyn7d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1939967071]
+position = Vector2(100.00001, 490.00006)
+scale = Vector2(0.16701584, 0.17530291)
+texture = ExtResource("2_siyp8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1105935971]
+position = Vector2(284, 489.99997)
+scale = Vector2(0.16701584, 0.17530291)
+texture = ExtResource("2_siyp8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1095470102]
+position = Vector2(464, 489.99997)
+scale = Vector2(0.16701584, 0.17530291)
+texture = ExtResource("2_siyp8")

@@ -37,10 +37,7 @@ func get_slot_info(slot_index: int) -> Variant:
 func create_new_save(slot_index: int) -> void:
 	var data := {
 		"slot": slot_index,
-		"created_at": Time.get_datetime_string_from_system(),
-		"play_time_seconds": 0,
-		"level_name": "Старт",
-		"chapter": 1,
+		"created_at": Time.get_datetime_string_from_system()
 	}
 	save_game(slot_index, data)
 
