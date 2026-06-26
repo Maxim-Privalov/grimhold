@@ -4,7 +4,7 @@ extends Control
 # Пути к сценам
 # ============================================
 const PATH_MAIN_MENU := "res://Scenes/UI/Menu/MainMenu.tscn"
-const PATH_GAMEPLAY := "res://Scenes/Gameplay/Gameplay.tscn"
+const PATH_GAME := "res://Scenes/World/Game.tscn"
 
 # ============================================
 # Цветовая палитра (единая точка правды)
@@ -150,7 +150,7 @@ func _create_slot_panel(slot_index: int) -> Control:
 	body.autowrap_mode = TextServer.AUTOWRAP_WORD
 	if not is_empty:
 		body.text = "Глава %s\n%s" % [
-			str(save_data.get("chapter", "?")),
+			#str(save_data.get("chapter", "?")),
 			str(save_data.get("created_at", ""))
 		]
 	else:
@@ -239,7 +239,15 @@ func _build_confirm_dialog() -> void:
 	btn_row.add_child(no_btn)
 
 	_confirm_popup = panel
+
 	add_child(panel)
+
+	await get_tree().process_frame
+
+	panel.offset_left -= panel.size.x / 2
+	panel.offset_top -= panel.size.y / 2
+	panel.offset_right -= panel.size.x / 2
+	panel.offset_bottom -= panel.size.y / 2
 
 
 # ============================================
@@ -341,4 +349,4 @@ func _on_cancel_overwrite() -> void:
 
 func _start_game(slot_index: int) -> void:
 	get_tree().set_meta("active_save_slot", slot_index)
-	SceneManager.change_scene(PATH_GAMEPLAY)
+	SceneManager.change_scene(PATH_GAME)
