@@ -51,7 +51,3 @@ moveDown={
 [physics]
 
 3d/physics_engine="Jolt Physics"
-
-[rendering]
-
-rendering_device/driver.windows="d3d12"

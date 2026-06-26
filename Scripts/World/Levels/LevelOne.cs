@@ -9,6 +9,7 @@ public partial class LevelOne : Node2D
 	public override void _Ready()
 	{	
 		CanvasLayer canvasLayer = new();
+		canvasLayer.Layer = -1;
 		AddChild(canvasLayer);
 		
 		var bg = new TextureRect
