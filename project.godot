@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="Grimhold"
-run/main_scene="uid://cfcc8aos8rdn1"
-config/features=PackedStringArray("4.7", "C#", "Forward Plus")
+run/main_scene="uid://dlmampdj34vfs"
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+<<<<<<<HEADrun/main_scene="uid://dlmampdj34vfs"
+
+[autoload]
+
+SaveSystem="*uid://dupob8ogphy6e"
+SceneManager="*uid://2pq1e56x0dsd"
 
 [dotnet]
 
