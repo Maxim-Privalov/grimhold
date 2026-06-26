@@ -3,16 +3,14 @@ using Godot;
 public partial class Player : CharacterBody2D
 {
 	[Export]
-	public float Speed = 250f;
+	public float Speed = 450f;
 
 	[Export]
-	public float JumpVelocity = -450f;
+	public float JumpVelocity = -650f;
 
 	[Export]
 	public float Gravity = 1200f;
 
-	// Номер слоя, на котором будут платформы, через которые можно спускаться.
-	// В Godot слои считаются с 1, поэтому 2 = второй слой.
 	[Export]
 	public int DropThroughPlatformLayer = 2;
 
@@ -23,6 +21,13 @@ public partial class Player : CharacterBody2D
 	public float DropVelocity = 80f;
 
 	private bool _isDroppingThroughPlatform = false;
+
+	private AnimatedSprite2D _animatedSprite;
+
+	public override void _Ready()
+	{
+		_animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+	}
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -37,14 +42,18 @@ public partial class Player : CharacterBody2D
 
 		if (Input.IsActionPressed("moveLeft"))
 		{
-			// меняем направление спрайта на движение влево
 			direction -= 1;
+
+			// Поворачиваем спрайт влево
+			_animatedSprite.FlipH = true;
 		}
 
 		if (Input.IsActionPressed("moveRight"))
 		{
-			// меняем направление спрайта на движение вправо
 			direction += 1;
+
+			// Поворачиваем спрайт вправо
+			_animatedSprite.FlipH = false;
 		}
 
 		velocity.X = direction * Speed;
@@ -53,21 +62,43 @@ public partial class Player : CharacterBody2D
 		{
 			if (Input.IsActionPressed("moveDown"))
 			{
-				
 				StartDropThroughPlatform();
-
-				
 				velocity.Y = DropVelocity;
 			}
 			else
 			{
-				
 				velocity.Y = JumpVelocity;
 			}
 		}
 
 		Velocity = velocity;
 		MoveAndSlide();
+
+		UpdateAnimation(direction);
+	}
+
+	private void UpdateAnimation(float direction)
+	{
+		if (!IsOnFloor())
+		{
+			PlayAnimation("jump");
+		}
+		else if (direction != 0)
+		{
+			PlayAnimation("run");
+		}
+		else
+		{
+			PlayAnimation("default");
+		}
+	}
+
+	private void PlayAnimation(string animationName)
+	{
+		if (_animatedSprite.Animation != animationName)
+		{
+			_animatedSprite.Play(animationName);
+		}
 	}
 
 	private async void StartDropThroughPlatform()
@@ -77,7 +108,6 @@ public partial class Player : CharacterBody2D
 
 		_isDroppingThroughPlatform = true;
 
-		// Временно отключаем столкновение игрока со слоем платформ.
 		SetCollisionMaskValue(DropThroughPlatformLayer, false);
 
 		await ToSignal(
@@ -85,7 +115,6 @@ public partial class Player : CharacterBody2D
 			SceneTreeTimer.SignalName.Timeout
 		);
 
-		// Возвращаем столкновение обратно.
 		SetCollisionMaskValue(DropThroughPlatformLayer, true);
 
 		_isDroppingThroughPlatform = false;
