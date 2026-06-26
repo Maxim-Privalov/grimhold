@@ -13,10 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dxdajk5v2k7lx" path="res://Assets/Sprites/IronKnight/run/frame_004.png" id="7_oitny"]
 [ext_resource type="Texture2D" uid="uid://cakramfrr3b8q" path="res://Assets/Sprites/IronKnight/jump/frame_004.png" id="7_ts3nf"]
 [ext_resource type="Texture2D" uid="uid://byq03nab5m1g8" path="res://Assets/Sprites/IronKnight/run/frame_005.png" id="8_ep03n"]
-[ext_resource type="Texture2D" uid="uid://ck45od57xm703" path="res://Assets/Sprites/IronKnight/jump/frame_005.png" id="8_pddbw"]
 [ext_resource type="Texture2D" uid="uid://c2hf4mmlyf38h" path="res://Assets/Sprites/IronKnight/run/frame_006.png" id="9_8hac2"]
-[ext_resource type="Texture2D" uid="uid://cexhl2uu1d764" path="res://Assets/Sprites/IronKnight/jump/frame_006.png" id="9_prtku"]
-[ext_resource type="Texture2D" uid="uid://wgh462w71odh" path="res://Assets/Sprites/IronKnight/jump/frame_007.png" id="10_an6b7"]
 [ext_resource type="Texture2D" uid="uid://c88r63qvqyglt" path="res://Assets/Sprites/IronKnight/run/frame_007.png" id="10_i7ck4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vdbgw"]
@@ -35,6 +32,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("7_ts3nf")
+}],
+"loop": 1,
+"name": &"drop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_18dbs")
 }, {
 "duration": 1.0,
@@ -48,19 +53,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_ts3nf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_pddbw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_prtku")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_an6b7")
 }],
-"loop": 1,
+"loop": 2,
 "name": &"jump",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -111,3 +107,4 @@ position = Vector2(21.000008, 154)
 scale = Vector2(4.7208333, 4.7208333)
 sprite_frames = SubResource("SpriteFrames_1uscq")
 animation = &"jump"
+frame_progress = 0.19651318

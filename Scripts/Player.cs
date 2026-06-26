@@ -76,10 +76,9 @@ public partial class Player : CharacterBody2D
 				Friction * (float)delta
 			);
 		}
-		if (Input.IsActionPressed("moveDown") && IsOnFloor())
+		if (Input.IsActionPressed("moveDown"))
 			{
 				StartDropThroughPlatform();
-				velocity.Y = DropVelocity;
 			}
 		if (Input.IsActionJustPressed("moveUp") && IsOnFloor())
 		{
@@ -94,14 +93,22 @@ public partial class Player : CharacterBody2D
 
 	private void UpdateAnimation(float direction)
 	{
-		if (!IsOnFloor())
+			if (!IsOnFloor())
 		{
-			PlayAnimation("jump");
+			if (Velocity.Y < 0)
+			{
+				PlayAnimation("jump");
+			}
+			else
+			{
+				PlayAnimation("drop");
+			}
 		}
 		else if (direction != 0)
 		{
 			PlayAnimation("run");
 		}
+		
 		else
 		{
 			PlayAnimation("default");
