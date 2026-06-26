@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cnsjy1hdcpk00"]
+[gd_scene format=3 uid="uid://c2dr5hmciy0ww"]
 
 [ext_resource type="Script" uid="uid://bhn8kqrtq4kh5" path="res://Scripts/World/Levels/LevelOne.cs" id="1_qyn7d"]
 [ext_resource type="Texture2D" uid="uid://dhhayctwkb6ve" path="res://Assets/Textures/DirtGrassBlock1.png" id="2_siyp8"]
@@ -11,8 +11,8 @@ size = Vector2(566, 121)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_siyp8"]
 size = Vector2(1112.5, 123)
 
-[node name="LevelOne" type="Node2D" unique_id=1890397627]
-script = ExtResource("1_qyn7d")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhjmk"]
+size = Vector2(1046, 212)
 
 [node name="Platform" type="StaticBody2D" parent="." unique_id=906982786]
 position = Vector2(299, 465)
