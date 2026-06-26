@@ -3,13 +3,19 @@ using Godot;
 public partial class Player : CharacterBody2D
 {
 	[Export]
-	public float Speed = 450f;
+	public float Speed = 650f;
 
 	[Export]
-	public float JumpVelocity = -650f;
+	public float JumpVelocity = -850f;
 
 	[Export]
 	public float Gravity = 1200f;
+
+	[Export]
+	public float Acceleration = 1800f;
+
+	[Export]
+	public float Friction = 2200f;
 
 	[Export]
 	public int DropThroughPlatformLayer = 2;
@@ -43,32 +49,41 @@ public partial class Player : CharacterBody2D
 		if (Input.IsActionPressed("moveLeft"))
 		{
 			direction -= 1;
-
-			// Поворачиваем спрайт влево
 			_animatedSprite.FlipH = true;
 		}
 
 		if (Input.IsActionPressed("moveRight"))
 		{
 			direction += 1;
-
-			// Поворачиваем спрайт вправо
 			_animatedSprite.FlipH = false;
 		}
 
-		velocity.X = direction * Speed;
-
-		if (Input.IsActionJustPressed("moveUp") && IsOnFloor())
+		if (direction != 0)
 		{
-			if (Input.IsActionPressed("moveDown"))
+			
+			velocity.X = Mathf.MoveToward(
+				velocity.X,
+				direction * Speed,
+				Acceleration * (float)delta
+			);
+		}
+		else
+		{
+			
+			velocity.X = Mathf.MoveToward(
+				velocity.X,
+				0,
+				Friction * (float)delta
+			);
+		}
+		if (Input.IsActionPressed("moveDown") && IsOnFloor())
 			{
 				StartDropThroughPlatform();
 				velocity.Y = DropVelocity;
 			}
-			else
-			{
-				velocity.Y = JumpVelocity;
-			}
+		if (Input.IsActionJustPressed("moveUp") && IsOnFloor())
+		{
+				velocity.Y = JumpVelocity;	
 		}
 
 		Velocity = velocity;

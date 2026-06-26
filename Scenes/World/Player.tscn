@@ -21,7 +21,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vdbgw"]
 radius = 68.0
-height = 316.0
+height = 278.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1uscq"]
 animations = [{
@@ -94,6 +94,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=330990359]
 position = Vector2(213, 84)
+collision_mask = 3
 script = ExtResource("1_1uscq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=184566842]
@@ -106,7 +107,7 @@ zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=584373740]
-position = Vector2(29.000008, 153)
+position = Vector2(21.000008, 154)
 scale = Vector2(4.7208333, 4.7208333)
 sprite_frames = SubResource("SpriteFrames_1uscq")
 animation = &"jump"
