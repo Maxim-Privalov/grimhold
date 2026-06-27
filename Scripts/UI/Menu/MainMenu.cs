@@ -7,7 +7,7 @@ public partial class MainMenu : Control
 	// Пути к сценам
 	private const string PATH_SAVE_SLOTS = "res://Scenes/UI/Menu/SaveSlotsMenu.tscn";
 	private const string PATH_SETTINGS = "res://Scenes/UI/Menu/SettingsMenu.tscn";
-    private const string MainMenuMusicPath = "res://Assets/Audio/Ambient/Menu.mp3";
+	private const string MainMenuMusicPath = "res://Assets/Audio/Ambient/Menu.mp3";
 
 	// Цветовые константы
 	private static readonly Color COLOR_ACCENT = new Color(0.82f, 0.30f, 0.18f);
@@ -22,16 +22,16 @@ public partial class MainMenu : Control
 
 	private List<Button> _buttons = new List<Button>();
 
-    private MusicManager _musicManager;
+	private MusicManager _musicManager;
 
 	public override void _Ready()
 	{
-        _musicManager = GetNode<MusicManager>("/root/MusicManager");
+		_musicManager = GetNode<MusicManager>("/root/MusicManager");
 
-        if (_musicManager != null)
-        {
-            _musicManager.ChangeMusicByPath(MainMenuMusicPath);
-        }
+		if (_musicManager != null)
+		{
+			_musicManager.ChangeMusicByPath(MainMenuMusicPath);
+		}
 
 		SetAnchorsPreset(LayoutPreset.FullRect);
 		BuildUI();

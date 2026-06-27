@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ccfwunj0jr6ho"]
+
+[ext_resource type="Script" uid="uid://mdjem8kuve32" path="res://Scripts/Autoload/MusicManager.cs" id="1_idqls"]
+
+[node name="EscSettingsMenu" type="Control" unique_id=1654784037]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_idqls")
