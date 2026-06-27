@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://bwuasdpri15yk"]
 
+[ext_resource type="Script" uid="uid://b6lc3bd8o04m0" path="res://Scripts/UI/GameMenu/EscMenu.cs" id="1_r1joj"]
+
 [node name="EscMenu" type="CanvasLayer" unique_id=98149400]
+script = ExtResource("1_r1joj")

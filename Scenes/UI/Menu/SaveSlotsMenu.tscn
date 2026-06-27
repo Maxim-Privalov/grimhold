@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cvh6yhbk4vnse"]
 
-[ext_resource type="Script" uid="uid://cetlg8m60ous6" path="res://Scripts/UI/Menu/SaveSlotsMenu.gd" id="1"]
+[ext_resource type="Script" uid="uid://lpnayjlygxgo" path="res://Scripts/UI/Menu/SaveSlotsMenu.cs" id="1_g1jv6"]
 
 [node name="SaveSlotsMenu" type="Control" unique_id=61720481]
 layout_mode = 3
@@ -9,4 +9,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1")
+script = ExtResource("1_g1jv6")
