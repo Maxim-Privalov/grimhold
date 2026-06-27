@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://csfcgsoawvusu"]
+
+[ext_resource type="Script" uid="uid://fmubni0dpqyl" path="res://Scripts/World/Game.cs" id="1_38uus"]
+
+[node name="Game" type="Node2D" unique_id=376912748]
+script = ExtResource("1_38uus")

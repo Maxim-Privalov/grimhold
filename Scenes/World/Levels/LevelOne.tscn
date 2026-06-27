@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://c2dr5hmciy0ww"]
+
+[ext_resource type="Script" uid="uid://bhn8kqrtq4kh5" path="res://Scripts/World/Levels/LevelOne.cs" id="1_qyn7d"]
+[ext_resource type="Texture2D" uid="uid://dhhayctwkb6ve" path="res://Assets/Textures/DirtGrassBlock1.png" id="2_siyp8"]
+[ext_resource type="PackedScene" uid="uid://de4i5at8bqime" path="res://Scenes/World/Player.tscn" id="3_iwlkf"]
+[ext_resource type="PackedScene" uid="uid://dryn1wrtmmlay" path="res://Scenes/World/Enemies/Skeleton.tscn" id="4_vgwp1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwlkf"]
+size = Vector2(566, 121)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_siyp8"]
+size = Vector2(1112.5, 123)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhjmk"]
+size = Vector2(1046, 212)
+
+[node name="Platform" type="StaticBody2D" parent="." unique_id=906982786]
+position = Vector2(299, 465)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform" unique_id=1939967071]
+position = Vector2(-199, 25.000061)
+scale = Vector2(0.16701584, 0.17530291)
+texture = ExtResource("2_siyp8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Platform" unique_id=1105935971]
+position = Vector2(-15, 24.99997)
+scale = Vector2(0.16701584, 0.17530291)
+texture = ExtResource("2_siyp8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Platform" unique_id=1095470102]
+position = Vector2(165, 24.99997)
+scale = Vector2(0.16701584, 0.17530291)
+texture = ExtResource("2_siyp8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=1453260452]
+position = Vector2(-18, 21.5)
+shape = SubResource("RectangleShape2D_iwlkf")
+
+[node name="Platform2" type="StaticBody2D" parent="." unique_id=692983445]
+position = Vector2(882, 285)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=1478804226]
+position = Vector2(256.5, 19.5)
+shape = SubResource("RectangleShape2D_siyp8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform2" unique_id=1076135340]
+position = Vector2(-199, 25.000061)
+scale = Vector2(0.16701584, 0.17530291)
+texture = ExtResource("2_siyp8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Platform2" unique_id=2110697189]
+position = Vector2(-15, 24.99997)
+scale = Vector2(0.16701584, 0.17530291)
+texture = ExtResource("2_siyp8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Platform2" unique_id=1247295958]
+position = Vector2(165, 24.99997)
+scale = Vector2(0.16701584, 0.17530291)
+texture = ExtResource("2_siyp8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Platform2" unique_id=1678099499]
+position = Vector2(341, 25)
+scale = Vector2(0.16701584, 0.17530291)
+texture = ExtResource("2_siyp8")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Platform2" unique_id=1253508103]
+position = Vector2(527, 23)
+scale = Vector2(0.16701584, 0.17530291)
+texture = ExtResource("2_siyp8")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Platform2" unique_id=662515571]
+position = Vector2(711.99994, 25)
+scale = Vector2(0.16701584, 0.17530291)
+texture = ExtResource("2_siyp8")
+
+[node name="Player" parent="." unique_id=330990359 instance=ExtResource("3_iwlkf")]
+position = Vector2(1502, -143)
+
+[node name="Skeleton" parent="." unique_id=1630602325 instance=ExtResource("4_vgwp1")]
+position = Vector2(897, -28)
