@@ -1,27 +1,3 @@
 [gd_scene format=3 uid="uid://dryn1wrtmmlay"]
 
-[ext_resource type="Texture2D" uid="uid://dnxw3cfeyarer" path="res://Assets/Sprites/Skeleton.png" id="1_s6dh6"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pq5k"]
-size = Vector2(267, 479)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngnj4"]
-size = Vector2(1453, 477)
-
 [node name="Skeleton" type="CharacterBody2D" unique_id=1630602325]
-position = Vector2(22, -31)
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=434798289]
-position = Vector2(-17.250021, 23.472803)
-scale = Vector2(0.4413377, 0.4413377)
-texture = ExtResource("1_s6dh6")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1782883702]
-position = Vector2(-19.5, 32.5)
-shape = SubResource("RectangleShape2D_5pq5k")
-
-[node name="VisionArea" type="Area2D" parent="." unique_id=767467162]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" unique_id=2127713446]
-position = Vector2(-4.5, 28.5)
-shape = SubResource("RectangleShape2D_ngnj4")
