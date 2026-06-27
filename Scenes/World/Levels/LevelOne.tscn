@@ -11,8 +11,8 @@ size = Vector2(566, 121)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_siyp8"]
 size = Vector2(1112.5, 123)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhjmk"]
-size = Vector2(1046, 212)
+[node name="Level1" type="Node2D" unique_id=1824494008]
+script = ExtResource("1_qyn7d")
 
 [node name="Platform" type="StaticBody2D" parent="." unique_id=906982786]
 position = Vector2(299, 465)
