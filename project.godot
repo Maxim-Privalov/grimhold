@@ -19,8 +19,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 SaveSystem="*uid://dmutk14n78yh"
-SceneManager="*uid://4yul181hwbxx"
 MusicManager="*uid://c72xn4cmb4w4"
+SceneManager="*uid://4yul181hwbxx"
 
 [dotnet]
 

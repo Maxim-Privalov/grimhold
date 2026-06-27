@@ -99,7 +99,9 @@ shape = SubResource("CapsuleShape2D_vdbgw")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=743981839]
 position = Vector2(25, 216)
+offset = Vector2(0, -150)
 zoom = Vector2(0.5, 0.5)
+limit_left = 0
 position_smoothing_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=584373740]

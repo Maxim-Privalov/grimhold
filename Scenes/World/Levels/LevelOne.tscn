@@ -3,78 +3,163 @@
 [ext_resource type="Script" uid="uid://bhn8kqrtq4kh5" path="res://Scripts/World/Levels/LevelOne.cs" id="1_qyn7d"]
 [ext_resource type="Texture2D" uid="uid://dhhayctwkb6ve" path="res://Assets/Textures/DirtGrassBlock1.png" id="2_siyp8"]
 [ext_resource type="PackedScene" uid="uid://de4i5at8bqime" path="res://Scenes/World/Player.tscn" id="3_iwlkf"]
-[ext_resource type="PackedScene" uid="uid://dryn1wrtmmlay" path="res://Scenes/World/Enemies/Skeleton.tscn" id="4_vgwp1"]
+[ext_resource type="Texture2D" uid="uid://pflrgikj65wx" path="res://Assets/Textures/GrassTile2.png" id="3_vgwp1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwlkf"]
-size = Vector2(566, 121)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
+size = Vector2(288.5, 456)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vrlf"]
+size = Vector2(361, 898)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_siyp8"]
-size = Vector2(1112.5, 123)
+size = Vector2(3370, 291.1875)
 
 [node name="Level1" type="Node2D" unique_id=1824494008]
 script = ExtResource("1_qyn7d")
+metadata/_edit_vertical_guides_ = [948.0]
 
 [node name="Platform" type="StaticBody2D" parent="." unique_id=906982786]
-position = Vector2(299, 465)
+position = Vector2(2863, -85)
 
-[node name="Sprite2D" type="Sprite2D" parent="Platform" unique_id=1939967071]
-position = Vector2(-199, 25.000061)
-scale = Vector2(0.16701584, 0.17530291)
+[node name="Sprite2D7" type="Sprite2D" parent="Platform" unique_id=705435192]
+z_index = 1
+position = Vector2(-316, 380)
+scale = Vector2(0.36179793, 0.39586136)
 texture = ExtResource("2_siyp8")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Platform" unique_id=1105935971]
-position = Vector2(-15, 24.99997)
-scale = Vector2(0.16701584, 0.17530291)
-texture = ExtResource("2_siyp8")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=2005868537]
+visible = false
+position = Vector2(53.75, 246)
+shape = SubResource("RectangleShape2D_1vivr")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Platform" unique_id=1095470102]
-position = Vector2(165, 24.99997)
-scale = Vector2(0.16701584, 0.17530291)
-texture = ExtResource("2_siyp8")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform" unique_id=1808873565]
+position = Vector2(-3049, -58)
+shape = SubResource("RectangleShape2D_8vrlf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=1453260452]
-position = Vector2(-18, 21.5)
-shape = SubResource("RectangleShape2D_iwlkf")
+[node name="ColorRect" type="ColorRect" parent="Platform" unique_id=66143043]
+offset_left = -112.0
+offset_top = 49.0
+offset_right = 223.0
+offset_bottom = 955.0
+color = Color(0, 0, 0, 1)
 
 [node name="Platform2" type="StaticBody2D" parent="." unique_id=692983445]
 position = Vector2(882, 285)
 
+[node name="GrassTile2" type="Sprite2D" parent="Platform2" unique_id=1281999184]
+z_index = 2
+position = Vector2(-311, -111.999985)
+scale = Vector2(0.41011235, 0.48486683)
+texture = ExtResource("3_vgwp1")
+
+[node name="GrassTile9" type="Sprite2D" parent="Platform2" unique_id=1818946622]
+z_index = 2
+position = Vector2(-740.00006, -119)
+scale = Vector2(0.41011235, 0.48486683)
+texture = ExtResource("3_vgwp1")
+
+[node name="GrassTile10" type="Sprite2D" parent="Platform2" unique_id=1439828271]
+z_index = 2
+position = Vector2(-1145, -130)
+scale = Vector2(0.41011235, 0.48486683)
+texture = ExtResource("3_vgwp1")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=1478804226]
-position = Vector2(256.5, 19.5)
+position = Vector2(195, 11.40625)
 shape = SubResource("RectangleShape2D_siyp8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform2" unique_id=1076135340]
-position = Vector2(-199, 25.000061)
-scale = Vector2(0.16701584, 0.17530291)
+z_index = 1
+position = Vector2(-314, 4.531259)
+scale = Vector2(0.36179793, 0.4105821)
 texture = ExtResource("2_siyp8")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Platform2" unique_id=2110697189]
-position = Vector2(-15, 24.99997)
-scale = Vector2(0.16701584, 0.17530291)
+[node name="Sprite2D7" type="Sprite2D" parent="Platform2" unique_id=883363645]
+z_index = 1
+position = Vector2(-725, 11.000009)
+scale = Vector2(0.36179793, 0.4105821)
 texture = ExtResource("2_siyp8")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Platform2" unique_id=1247295958]
-position = Vector2(165, 24.99997)
-scale = Vector2(0.16701584, 0.17530291)
+[node name="Sprite2D8" type="Sprite2D" parent="Platform2" unique_id=572158479]
+z_index = 1
+position = Vector2(-1115, 11.000009)
+scale = Vector2(0.36179793, 0.4105821)
 texture = ExtResource("2_siyp8")
 
-[node name="Sprite2D4" type="Sprite2D" parent="Platform2" unique_id=1678099499]
-position = Vector2(341, 25)
-scale = Vector2(0.16701584, 0.17530291)
+[node name="Sprite2D2" type="Sprite2D" parent="Platform2" unique_id=1455242545]
+z_index = 1
+position = Vector2(92, 10)
+scale = Vector2(0.36179793, 0.39586136)
 texture = ExtResource("2_siyp8")
 
-[node name="Sprite2D5" type="Sprite2D" parent="Platform2" unique_id=1253508103]
-position = Vector2(527, 23)
-scale = Vector2(0.16701584, 0.17530291)
+[node name="Sprite2D3" type="Sprite2D" parent="Platform2" unique_id=270960333]
+z_index = 1
+position = Vector2(498, 10)
+scale = Vector2(0.36179793, 0.39586136)
 texture = ExtResource("2_siyp8")
 
-[node name="Sprite2D6" type="Sprite2D" parent="Platform2" unique_id=662515571]
-position = Vector2(711.99994, 25)
-scale = Vector2(0.16701584, 0.17530291)
+[node name="Sprite2D4" type="Sprite2D" parent="Platform2" unique_id=468370053]
+z_index = 1
+position = Vector2(897, 10)
+scale = Vector2(0.36179793, 0.39586136)
 texture = ExtResource("2_siyp8")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Platform2" unique_id=249173494]
+z_index = 1
+position = Vector2(1271, 10)
+scale = Vector2(0.36179793, 0.39586136)
+texture = ExtResource("2_siyp8")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Platform2" unique_id=22242410]
+z_index = 1
+position = Vector2(2030.5001, -197.00003)
+scale = Vector2(0.31098056, 0.42799458)
+texture = ExtResource("2_siyp8")
+
+[node name="ColorRect" type="ColorRect" parent="Platform2" unique_id=734499292]
+offset_left = -1393.0
+offset_top = -105.0
+offset_right = 1869.0
+offset_bottom = 587.0
+color = Color(0, 0, 0, 1)
+
+[node name="GrassTile3" type="Sprite2D" parent="Platform2" unique_id=1901020547]
+z_index = 2
+position = Vector2(98.00006, -112)
+scale = Vector2(0.41011235, 0.48486683)
+texture = ExtResource("3_vgwp1")
+
+[node name="GrassTile4" type="Sprite2D" parent="Platform2" unique_id=1985216984]
+z_index = 2
+position = Vector2(499.00006, -120)
+scale = Vector2(0.41011235, 0.48486683)
+texture = ExtResource("3_vgwp1")
+
+[node name="GrassTile5" type="Sprite2D" parent="Platform2" unique_id=1505145658]
+z_index = 2
+position = Vector2(913.0001, -120)
+scale = Vector2(0.41011235, 0.48486683)
+texture = ExtResource("3_vgwp1")
+
+[node name="GrassTile6" type="Sprite2D" parent="Platform2" unique_id=209094253]
+z_index = 2
+position = Vector2(1247.0001, -117)
+scale = Vector2(0.41011235, 0.48486683)
+texture = ExtResource("3_vgwp1")
+
+[node name="GrassTile7" type="Sprite2D" parent="Platform2" unique_id=1050831775]
+z_index = 2
+position = Vector2(1656.0002, -120)
+scale = Vector2(0.41011235, 0.48486683)
+texture = ExtResource("3_vgwp1")
+
+[node name="GrassTile8" type="Sprite2D" parent="Platform2" unique_id=842226162]
+z_index = 2
+position = Vector2(2031, -363)
+scale = Vector2(0.3576778, 0.40677965)
+texture = ExtResource("3_vgwp1")
 
 [node name="Player" parent="." unique_id=330990359 instance=ExtResource("3_iwlkf")]
-position = Vector2(1502, -143)
+position = Vector2(1477, -150)
 
-[node name="Skeleton" parent="." unique_id=1630602325 instance=ExtResource("4_vgwp1")]
-position = Vector2(897, -28)
+[node name="Platform3" type="StaticBody2D" parent="." unique_id=1911188918]
